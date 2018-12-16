@@ -1,0 +1,86 @@
+
+<%include ../partials/header%>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<p class="lead">YelpCamp</p>
+			<div class="list-group">
+				<div class="list-group-item active">
+					Collection 1
+				</div>
+				<div class="list-group-item ">
+					Collection 2
+				</div>
+				<div class="list-group-item ">
+					Collection 3
+				</div>
+			</div>
+			
+		</div>
+
+       <div class="col-md-9">
+       	   <div class="thumbnail">
+       	   	<img src="<%=foundcamp.img%>">
+       	   	<div class="caption-full">
+       	   	 <h4 class="pull-right">Pricing</h4>
+       	 	 <h4><a href="#"><%=foundcamp.name%></a> </h4>
+            
+
+       	   	</div>
+       	   </div>
+          <em>Posted By-<%=foundcamp.author.username%> </em>
+       </div>
+
+
+	</div>
+
+  	
+</div>
+
+
+
+
+
+
+<p><%=foundcamp.description%></p>
+<a class="btn btn-success" href="/campgrounds/<%=foundcamp._id%>/comments/new">Add a new Comment</a>	
+<%foundcamp.comments.forEach(function(comment){%>
+<p>
+	<strong><%=comment.author.username%></strong>--<%=comment.text%>
+</p>           
+                    <% if (currentUser && comment.author.id.equals(currentUser.id)) { %>
+                    	    <a href="/campgrounds/<%=foundcamp._id%>/comments/<%=comment._id%>/edit">Edit Comment</a>
+                 <form method="POST" action="/campgrounds/<%=foundcamp._id%>/comments/<%=comment._id%>?_method=DELETE">
+	                  <button>Delete Comment</button>
+                 </form>
+                    <% }%>
+                    	 
+                    
+                   	  
+                      
+
+                  
+                   	
+                  
+
+                 
+<%})%>
+<ui>
+	
+       
+       <% if (currentUser && foundcamp.author.id.equals(currentUser._id)) { %>
+		<li><a href="/campgrounds/<%=foundcamp._id%>/edit">Edit</a></li>
+	
+	<form action="/campgrounds/<%=foundcamp._id%>?_method=DELETE" method="POST">
+		<button>Delete</button>
+	</form>
+	<% } %>
+
+
+
+
+	
+	
+</ui>
+<%include ../partials/footer%>

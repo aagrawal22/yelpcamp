@@ -1,0 +1,18 @@
+
+<%include ../partials/header%>
+
+<form action="/campgrounds/<%=tocomment._id%>/comments" method="POST" class="form-group" style=" width: 40px; margin: 0 auto;">
+
+
+<div class="form-control">
+<input type="text" name="comment[text]" placeholder="Add the comment">
+</div>
+
+
+<div>
+<a href="/campgrounds" >Go Back</a>
+<button type="submit" class="btn btn-primary " >Add new comment</button>
+</div>
+</form>
+
+<%include ../partials/footer%>

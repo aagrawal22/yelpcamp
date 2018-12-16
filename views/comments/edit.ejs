@@ -1,0 +1,17 @@
+<%include ../partials/header%>
+
+<form action="/campgrounds/<%=campgroundid%>/comments/<%=commenttoupdate._id%>?_method=PUT" method="POST" class="form-group" style=" width: 40px; margin: 0 auto;">
+
+
+<div class="form-control">
+<input type="text" name="comment[text]" value="<%=commenttoupdate.text%>">
+</div>
+
+
+<div>
+<a href="/campgrounds" >Go Back</a>
+<button type="submit" class="btn btn-primary " >Update</button>
+</div>
+</form>
+
+<%include ../partials/footer%>

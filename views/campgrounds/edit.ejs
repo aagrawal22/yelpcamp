@@ -1,0 +1,13 @@
+<%include ../partials/header%>
+<h1>Edit Form</h1>
+
+
+<form method="POST" action="/campgrounds/<%=foundcamp._id%>?_method=PUT">
+  <input type="text" name="campground[name]" value="<%=foundcamp.name%>">
+  <input type="text" name="campground[img]" value="<%=foundcamp.img%>">
+   <input type="text" name="campground[description]" value="<%=foundcamp.description%>">
+  <button>Update</button>
+
+	
+</form>
+<%include ../partials/footer%>

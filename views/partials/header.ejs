@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>YelpCamp v2</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
+  <link rel="stylesheet" type="text/css" href="..../public/app.css">
+
+
+	
+</head>
+<body>
+
+
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/campgrounds">YelpCamp.2</a>
+    </div>
+    
+<div >
+<ul class="nav navbar-nav " >
+
+     <%if(!currentUser){ %><!--if no user logged in then currentuser is undefined-->
+        <li><a href="/login" >Login</a></li>
+      <li><a href="/register" >Signup</a></li>
+   <% }else{%>
+   <li><a href="#">Signed in as <%=currentUser.username%></a></li>
+      <li><a href="/logout" >Logout</a></li>
+
+ <%} %>
+      
+    </ul>
+</div>
+</div>
+</nav>
+
+<div class="container">
+          <% if (error && error.length>0) { -%>
+                 <div class="alert alert-danger" role="alert"><%=error%></div>
+          <% }  -%>
+
+            <% if (success && success.length>0) { -%>
+                 <div class="alert alert-success" role="alert"><%=success%></div>
+          <% }  -%>       
+         
+
+
+</div>
